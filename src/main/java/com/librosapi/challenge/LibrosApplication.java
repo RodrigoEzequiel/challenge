@@ -2,7 +2,6 @@ package com.librosapi.challenge;
 
 import com.librosapi.challenge.apiexterna.model.ApiResponseDTO;
 import com.librosapi.challenge.apiexterna.service.ApiClient;
-import com.librosapi.challenge.apiexterna.service.Conversor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
