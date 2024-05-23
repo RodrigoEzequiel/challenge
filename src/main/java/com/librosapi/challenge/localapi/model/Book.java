@@ -17,7 +17,7 @@ public class Book {
     @Column(name = "titulo", nullable = false, unique = true )
     private String title;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "libros_autores",
             joinColumns = {@JoinColumn(name = "book_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "author_id", nullable = false)})
