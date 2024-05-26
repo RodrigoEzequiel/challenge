@@ -9,7 +9,7 @@ import com.librosapi.challenge.localapi.utils.ConsoleUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 @Component
 public class MenuManager {
     private ApiClient apiClient = new ApiClient();
@@ -22,9 +22,19 @@ public class MenuManager {
 
     public void buscarYGuardar(){
         String busqueda = ConsoleUtils.leerString("ingrese el titulo o nombre de autor:");
+        System.err.println("AGUARDANDO RESPUESTA DE LA API...");
         ApiResponseDTO respuesta = apiClient.getDatos(busqueda);
+        if(respuesta.results().isEmpty()) {
+            System.err.println("NO SE HA PODIDO ESTABLECER CONEXION CON LA API");
+            return;
+        }
+        System.err.println("LEYENDO RESPUESTA DE LA API...");
         List<Book> libros = arm.convertirDtoAEntidad(respuesta.results());
+        System.err.println("GUARDADO EN BASES DE DATOS LOS RESULTADOS...");
         List<Book> guardados = libros.stream().map(bs::guardar).toList();
-        guardados.forEach(System.out::println);
+        System.err.println("MOSTRANDO LOS RESULTADOS...");
+        System.err.println("=================================================================================================================");
+        guardados.forEach(System.err::println);
+        System.err.println("=================================================================================================================");
     }
 }

@@ -17,13 +17,16 @@ public class Book {
     @Column(name = "titulo", nullable = false, unique = true )
     private String title;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "libros_autores",
-            joinColumns = {@JoinColumn(name = "book_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "author_id", nullable = false)})
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private List<Author> authors = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "libros_lenguajes",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "lenguaje_id")})
     private List<Language> languages = new ArrayList<>();
 
     @Column(name = "descargas")

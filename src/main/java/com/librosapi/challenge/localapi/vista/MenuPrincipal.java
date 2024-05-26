@@ -2,7 +2,6 @@ package com.librosapi.challenge.localapi.vista;
 
 import com.librosapi.challenge.localapi.utils.ConsoleUtils;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class MenuPrincipal {
@@ -24,6 +23,7 @@ public class MenuPrincipal {
             ConsoleUtils.imprimir("opcion 0: salir");
             opcion = ConsoleUtils.leerEntero("Ingrese una opcion");
             proccessOption(opcion);
+            opcion = -1;
         }
     }
     private void proccessOption( int opcion){

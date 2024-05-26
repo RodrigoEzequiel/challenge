@@ -16,7 +16,6 @@ public class Author {
     private String firstName;
     @Column(name = "apellido", nullable = false)
     private String lastName;
-    @Column(nullable = false )
     private String fechaNacimiento;
     private String fechaFallecimiento;
     @ManyToMany(mappedBy = "authors")
@@ -105,7 +104,6 @@ public class Author {
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, fechaNacimiento, fechaFallecimiento, books, name);
-
     }
 
     @Override
@@ -116,10 +114,8 @@ public class Author {
                 ", lastName='" + lastName + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 ", fechaFallecimiento='" + fechaFallecimiento + '\'' +
-                ", books=" + books +
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }
 

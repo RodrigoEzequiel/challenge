@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query(value = "SELECT b FROM Book b WHERE b.title =:title ")
-    public Book existBook(String title);
+
+    public Book findByTitle(String title);
 
     @Query(value = "SELECT b FROM Book b ORDER BY b.download_count DESC LIMIT 5")
     public List<Book> top5();
