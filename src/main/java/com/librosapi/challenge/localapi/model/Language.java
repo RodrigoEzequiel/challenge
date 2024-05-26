@@ -14,6 +14,7 @@ public class Language {
     private Long id;
     @Column(nullable = false, length = 2, unique = true)
     private String languageCode;
+    @ManyToMany(mappedBy = "languages")
     private List<Book> books = new ArrayList<>();
 
     public Language() {

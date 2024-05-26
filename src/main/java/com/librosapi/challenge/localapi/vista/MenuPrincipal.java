@@ -16,13 +16,14 @@ public class MenuPrincipal {
         while (opcion < 0 || opcion > 5) {
             ConsoleUtils.imprimir("Elija la opcion deseada:");
             ConsoleUtils.imprimir("Opcion 1: buscar libro por titulo y/o autor:");
-            ConsoleUtils.imprimir("opcion 2: libros registrados por autor");
+            ConsoleUtils.imprimir("opcion 2: listar autores por apellido");
             ConsoleUtils.imprimir("opcion 3: listar libros registrados:");
             ConsoleUtils.imprimir("opcion 4: listar autores vivos: ");
             ConsoleUtils.imprimir("opcion 5: listar los 5 libros mas descargados");
             ConsoleUtils.imprimir("opcion 0: salir");
             opcion = ConsoleUtils.leerEntero("Ingrese una opcion");
             proccessOption(opcion);
+            if(opcion != 0)
             opcion = -1;
         }
     }
@@ -32,16 +33,20 @@ public class MenuPrincipal {
                 mm.buscarYGuardar();
                 break;
             case 2:
+                mm.buscarAutorPorApellido();
                 break;
             case 3:
+                mm.mostrarLibrosRegistrados();
                 break;
             case 4:
+                mm.mostrarAutoresVivos();
                 break;
             case 5:
+                mm.mostrarTop5();
                 break;
             case 0:
                 ConsoleUtils.imprimir("gracias por usar nuestro programa.");
-                return;
+                break;
             default:
                 ConsoleUtils.imprimir("opcion incorrecta");
         }

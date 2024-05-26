@@ -17,4 +17,8 @@ public class AuthorsService {
     public List<Author> autoresVivos(){
         return repository.autoresVivos();
     }
+
+    public List<Author> autoresPorApellido(String buscado) {
+        return repository.findByLastNameIgnoreCase(buscado);
+    }
 }
