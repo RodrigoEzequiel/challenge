@@ -1,10 +1,10 @@
 <em>#_*Challenge Proyecto Literatura*_</em>
 
-** Descripcion del proyecto **
+**Descripcion del proyecto**
 
-. Se creo para obtener datos y respuestas desde una API externa.
+.=Se creo para obtener datos y respuestas desde una API externa.
 
-. Se pueden obtener ciertos datos
+.Se pueden obtener ciertos datos
 1. Autores
 2. Nacimiento y fallecimiento si asi lo requiere.
 3. Lista de libros mas descargados, etc
